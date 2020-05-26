@@ -3,20 +3,37 @@ $(document).ready(function() {
     //   alert('dgfhghfgh');
    // });
 
-    $('form').submit(function(e){
+    $("form").submit(function(e){
         e.preventDefault();
-        alert($("input[name='name']").val());
+        //alert($("input[name='name']").val());
 
-       $("div").append($(`<h2>${$("input[name='name']").val()}</h2>`));
-      $("h2").mouseover(function (e){
-           $(e.target).css({
-             "background-color": random_bg_color(),
-              "border-radius": (Math.random() * 50) + "px"
-        })
-     });
+     //  $("div").append($(`<h2>${$("input[name='name']").val()}</h2>`));
+    //  $("h2").mouseover(function (e){
+    //       $(e.target).css({
+    //         "background-color": random_bg_color(),
+    //          "border-radius": (Math.random() * 50) + "px"
+    //    })
+     
 
 
 
-    });
+    
+
+
+  $("input[name='name']").on("keyup", function (){
+       if ($("input[name='name']").val() === "") {
+           $('#btnSubmit').attr("disabled", true);    
+        } else {
+           $('#btnSubmit').attr("disabled", false);
+        }
+    })
+    $("body").append($("<form></form>"));
+
 });
 });
+});
+
+
+//    $('body').append($("<div></div>"));
+
+//})
